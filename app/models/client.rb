@@ -5,7 +5,7 @@ class Client < ActiveRecord::Base
   validates :title, :length => { :minimum => 3, :maximum => 100 }
   validates :token, :presence => true, :uniqueness => true
 
-  before_validation_on_create :generate_token
+  before_validation :generate_token, :on => :create
 
   attr_accessible :title, :alert_delay
 
