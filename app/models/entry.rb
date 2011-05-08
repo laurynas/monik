@@ -1,15 +1,15 @@
 class Entry < ActiveRecord::Base
 
-  belongs_to :client
+  belongs_to :listener
 
-  validates :client_id, :presence => true
+  validates :listener_id, :presence => true
 
-  after_create :touch_client
+  after_create :touch_listener
 
   protected
 
-  def touch_client
-    self.client.touch(:last_entry_at)
+  def touch_listener
+    self.listener.touch(:last_entry_at)
   end
 
 end

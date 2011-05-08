@@ -5,10 +5,10 @@ class Api::BaseController < ApplicationController
   protected
 
   def check_auth
-    @client = Client.find(params[:client_id])
+    @listener = Listener.find(params[:listener_id])
 
-    if @client.token != params[:token]
-      render :text => "Access denied. Check client id and token.\n\n", :status => :unauthorized
+    if @listener.token != params[:token]
+      render :text => "Access denied. Check listener id and token.\n\n", :status => :unauthorized
       return false
     end
   end

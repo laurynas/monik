@@ -2,12 +2,12 @@ class CreateClients < ActiveRecord::Migration
   def self.up
     create_table :clients do |t|
       t.string    :title, :limit => 100, :null => false
-      t.string    :token, :limit => 32, :null => false
-      t.datetime  :last_entry_at
-      t.integer   :alert_delay, :null => false, :default => 2.days.to_i
+      t.string    :email, :limit => 100, :null => false
 
       t.timestamps
     end
+
+    add_index :clients, :email, :unique => true
   end
 
   def self.down

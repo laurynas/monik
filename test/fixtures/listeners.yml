@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  client_id: 1
+  token: MyString
+  last_entry_at: 2011-05-08 23:13:30
+
+two:
+  title: MyString
+  client_id: 1
+  token: MyString
+  last_entry_at: 2011-05-08 23:13:30

@@ -7,8 +7,8 @@
 # -------------------------------------------------------------------------------------------------
 
 # Monik authentication details
-CLIENT_ID=1
-TOKEN=ae17354fc36916cfed79ee33bdf12bb0
+LISTENER_ID=1
+TOKEN=f86545bfeb39fe060c2ecc8c3f4b48b9
 
 # -------------------------------------------------------------------------------------------------
 
@@ -23,5 +23,5 @@ if [ ! -x $CURL ]; then
     exit 1
 fi
 
-$CURL -F data=@- --url "$URL?client_id=$CLIENT_ID&token=$TOKEN"
+$CURL -F data=@- --url "$URL?listener_id=$LISTENER_ID&token=$TOKEN"
 
