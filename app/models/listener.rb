@@ -2,7 +2,7 @@ class Listener < ActiveRecord::Base
   belongs_to  :client
   has_many    :entries, :dependent => :delete_all
 
-  scope :in_alert_mode, :conditions => [ "last_entry_at < ? - (alert_delay||' seconds')::INTERVAL", Time.now ]
+  scope :in_alert_mode, :conditions => [ "last_entry_at < ?::TIMESTAMP - (alert_delay||' seconds')::INTERVAL", Time.now ]
 
   validates :title, :length => { :minimum => 3, :maximum => 100 }
   validates :token, :presence => true, :uniqueness => true
