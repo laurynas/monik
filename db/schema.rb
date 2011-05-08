@@ -28,4 +28,6 @@ ActiveRecord::Schema.define(:version => 20110502141541) do
     t.datetime "updated_at"
   end
 
+  add_index "entries", ["client_id"], :name => "client_id_idx"
+
 end

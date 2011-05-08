@@ -6,6 +6,8 @@ class CreateEntries < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :entries, :client_id, :name => 'client_id_idx'
   end
 
   def self.down
