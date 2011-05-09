@@ -24,7 +24,7 @@ fi
 usage() {
     echo ''
     echo 'Usage: monik -c log -l your_logger_id -t your_token -m "log message"'
-
+    echo ''
 }
 
 # ------------------------------------------------------------------------------
