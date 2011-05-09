@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Monik logger. Sends data from STDIN to the Monik server.
+# Monik logger. Sends data to the Monik server.
 #
 # 2011. Created by Laurynas Butkus, laurynas.butkus@gmail.com
 #
