@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+
+MONIK_LISTENER=LISTENER_ID
+MONIK_TOKEN=YOURTOKEN
+
+MESSAGE=$@
+
+/opt/monik/monik -c log -l $MONIK_LISTENER -t $MONIK_TOKEN -m "$MESSAGE"

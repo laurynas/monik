@@ -1,0 +1,76 @@
+#!/bin/sh
+#
+# Monik logger. Sends data to the Monik server.
+#
+# 2011. Created by Laurynas Butkus, laurynas.butkus@gmail.com
+#
+# ------------------------------------------------------------------------------
+
+# Monik API URL
+URL="http://monik.heroku.com/api"
+
+# ------------------------------------------------------------------------------
+# CURL path
+
+CURL=/usr/bin/curl
+
+if [ ! -x $CURL ]; then
+    echo "Error: cannot find curl"
+    exit 1
+fi
+
+# ------------------------------------------------------------------------------
+
+usage() {
+    echo ''
+    echo 'Usage: monik -c log -l your_logger_id -t your_token -m "log message"'
+    echo ''
+}
+
+# ------------------------------------------------------------------------------
+
+log() {
+    $CURL --url "$URL/main/log" \
+        --data-urlencode listener_id="$LISTENER_ID" \
+        --data-urlencode token="$TOKEN" \
+        --data-urlencode message="$MESSAGE"
+}
+
+# ------------------------------------------------------------------------------
+
+while getopts ":c:l:t:m:" opt; do
+    case $opt in
+        c)
+            CMD="$OPTARG"
+            ;;
+        l)
+            LISTENER_ID="$OPTARG"
+            ;;
+        t)
+            TOKEN="$OPTARG"
+            ;;
+        m)
+            MESSAGE="$OPTARG"
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            ;;
+    esac
+done
+
+# ------------------------------------------------------------------------------
+
+case "$CMD" in
+    log)
+        log
+        ;;
+
+    *)
+        usage
+        ;;
+esac
+
+# ------------------------------------------------------------------------------
+
+exit 0
+
